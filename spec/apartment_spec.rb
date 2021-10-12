@@ -27,13 +27,15 @@ RSpec.describe 'Iteration 1 cont.' do
   end
 
   it "has no renter" do
-    expect(@unit1.renter).to eq([])
+    expect(@unit1.renter).to be nil
   end
 
   it "can add renter" do
     @renter1 = Renter.new("Jessie")
 
-    expect(@unit1.add_renter).to eq([@jessie])
+    @unit1.add_renter(@renter1)
+
+    expect(@unit1.renter).to eq(@renter1)
   end
 
 end
